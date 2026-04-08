@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary navy: #0B2A45 -> oklch(22.1% 0.06 234) */
+    --background: 97 0.005 234;
+    --foreground: 15 0.055 234;
+
+    --card: 100 0 0;
+    --card-foreground: 15 0.055 234;
+
+    --popover: 100 0 0;
+    --popover-foreground: 15 0.055 234;
+
+    /* Navy primary #0B2A45 */
+    --primary: 22.1 0.072 234;
+    --primary-foreground: 99 0.002 0;
+
+    /* Accent blue #1E6FA8 */
+    --secondary: 68 0.19 45;
+    --secondary-foreground: 99 0.002 0;
+
+    --muted: 94 0.01 234;
+    --muted-foreground: 45 0.04 234;
+
+    --accent: 68 0.19 45;
+    --accent-foreground: 99 0.002 0;
+
+    --destructive: 50 0.2 25;
+    --destructive-foreground: 99 0.002 0;
+
+    --border: 88 0.015 234;
+    --input: 88 0.015 234;
+    --ring: 68 0.19 45;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --navy: 22.1 0.072 234;
+    --navy-dark: 18 0.068 234;
+    --accent-blue: 68 0.19 45;
+    --accent-blue-bright: 75 0.21 45;
+    --hero-bg: 92 0.018 234;
+    --cyan-glow: 78 0.14 205;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    font-weight: bold;
+    color: black;
+  }
+  body {
+    @apply bg-background;
+    font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+@layer utilities {
+  .neural-bg {
+    background-color: oklch(var(--hero-bg));
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        rgba(42, 134, 201, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba(66, 198, 255, 0.06) 0%,
+        transparent 50%
+      );
+  }
+
+  .text-navy {
+    color: black;
+  }
+
+  .bg-navy {
+    background-color: oklch(var(--navy));
+  }
+
+  .bg-navy-dark {
+    background-color: oklch(var(--navy-dark));
+  }
+
+  .text-accent-blue {
+    color: black;
+  }
+
+  .bg-accent-blue {
+    background-color: oklch(var(--accent-blue));
+  }
+
+  .gradient-navy {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--navy)) 0%,
+      oklch(var(--navy-dark)) 100%
+    );
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(11, 42, 69, 0.15);
+  }
+}
